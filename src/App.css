@@ -1,16 +1,21 @@
 * {
     padding: 0;
-    margin: 0;
+    margin: 0; 
 }
-.containers {
-    padding: 2em auto;
-    
+body {
+    background-color: azure;
+    font-size: 1.2rem;
 }
-.StaffInfo {
-    margin-top: 2em;
+.App {
+    padding-bottom: 1rem;
 }
+
 .row {
     padding: 0.5em 0;
+}
+
+.StaffInfo {
+    margin-top: 2em;
 }
 
 .listStaff div {

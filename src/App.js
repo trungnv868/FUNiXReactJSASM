@@ -19,9 +19,12 @@ class App extends Component {
             <h4 className= "heading" >Ứng dụng quản lý nhân sự v1.0</h4>
           </div>
         </Navbar>
+        <div clasname="wrap">
         <div className="container">
-          <StaffList staff={this.state.staffs} />
+            <StaffList staff={this.state.staffs} />
+          </div>
         </div>
+          
       </div>
     );
   }

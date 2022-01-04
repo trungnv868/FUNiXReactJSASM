@@ -30,16 +30,16 @@ class StaffList extends Component {
 
     const staff = this.props.staff.map((staff) => {
       return (
-        <Card className="col col-lg-3 col-md-6">
+        <Card className="col-6 col-lg-3 col-md-6">
           <div onClick={ () => this.onStaffSelect(staff)}>
-              <div className="name"> {staff.name} </div>              
+            <div className="name"> {staff.name} </div>              
           </div>
         </Card>
       )      
     });
 
     return (
-      <div className="">
+      <div className="main">
         <div className="row">
           {staff}
         </div>
