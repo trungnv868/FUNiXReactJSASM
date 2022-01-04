@@ -27,25 +27,24 @@ class StaffList extends Component {
   }
 
   render() {
+
     const staff = this.props.staff.map((staff) => {
       return (
-        <Card className="col-lg-3 col-md-6" key={staff.id}>
+        <Card className="col col-lg-3 col-md-6">
           <div onClick={ () => this.onStaffSelect(staff)}>
-            <div className="img-tag">
               <div className="name"> {staff.name} </div>              
-            </div>
           </div>
         </Card>
       )      
     });
 
     return (
-      <div className="container">
+      <div className="">
         <div className="row">
           {staff}
         </div>
         <div>Bấm vào tên nhân viên để xem thông tin</div>
-        <div className="StaffInfo row">
+        <div className="staffInfo row">
           {this.renderStaff(this.state.selectedStaff)}
         </div>
       </div>

@@ -14,13 +14,14 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <Navbar dark color='primary'>
+        <Navbar dark color='primary text-light'>
           <div className= "Header">
-            <h3 className= "heading" >Ứng dụng quản lý nhân sự v1.0</h3>
+            <h4 className= "heading" >Ứng dụng quản lý nhân sự v1.0</h4>
           </div>
         </Navbar>
-
-        <StaffList staff={this.state.staffs} />
+        <div className="container">
+          <StaffList staff={this.state.staffs} />
+        </div>
       </div>
     );
   }
