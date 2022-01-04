@@ -20,7 +20,7 @@ class App extends Component {
           </div>
         </Navbar>
         <div clasname="wrap">
-        <div className="container">
+          <div className="container">
             <StaffList staff={this.state.staffs} />
           </div>
         </div>
