@@ -9,7 +9,10 @@ body {
 .App {
     padding-bottom: 1rem;
 }
+.card {
+    padding: 0 20px;
 
+}
 .row {
     padding: 0.5em 0;
 }
