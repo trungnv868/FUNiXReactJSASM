@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Card } from 'reactstrap';
+import { Card, CardTitle } from 'reactstrap';
 import StaffDetails from './StaffDetail';
 
 class StaffList extends Component {
@@ -40,6 +40,7 @@ class StaffList extends Component {
 
     return (
       <div className="main">
+        <CardTitle>Danh sách nhân viên</CardTitle>
         <div className="row">
           {staff}
         </div>
