@@ -3,6 +3,7 @@ import { Card, CardTitle } from 'reactstrap';
 import StaffDetails from './StaffDetail';
 
 class StaffList extends Component {
+  
   constructor(props) {
     super(props);
     this.state = {
@@ -10,13 +11,13 @@ class StaffList extends Component {
     }
   }
   
-  onStaffSelect(staff){
+  onStaffSelect(staff) {
     this.setState({
       selectedStaff: staff
     })
   }
 
-  renderStaff(staff){
+  renderStaff(staff) {
     if (staff != null)
       return (
         <StaffDetails staff={staff} />
@@ -31,7 +32,7 @@ class StaffList extends Component {
     const staff = this.props.staff.map((staff) => {
       return (
         <Card className="col-6 col-lg-3 col-md-6">
-          <div onClick={ () => this.onStaffSelect(staff)}>
+          <div onClick={() => this.onStaffSelect(staff)}>
             <div className="name"> {staff.name} </div>              
           </div>
         </Card>
@@ -40,7 +41,7 @@ class StaffList extends Component {
 
     return (
       <div className="main">
-        <CardTitle>Danh sách nhân viên</CardTitle>
+        <CardTitle> Danh sách nhân viên </CardTitle>
         <div className="row">
           {staff}
         </div>
