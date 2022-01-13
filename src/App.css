@@ -1,28 +1,52 @@
-* {
+/* * {
     padding: 0;
     margin: 0; 
 }
-body {
-    background-color: azure;
-    font-size: 1.2rem;
+.card {
+    margin-bottom: 1rem;
+} */
+.row-header{
+    margin:0px auto;
+    padding:0px auto;
 }
-.App {
-    padding-bottom: 1rem;
+
+.row-content {
+    margin:0px auto;
+    padding: 50px 0px 50px 0px;
+    border-bottom: 1px ridge;
+    min-height:400px;
 }
-.card-title {
-    padding-top: 10px;
-    font-size: 1.5rem;
+
+.footer{
+    background-color: #D1C4E9;
+    margin:0px auto;
+    padding: 20px 0px 20px 0px;
+}
+.jumbotron {
+    padding:70px 30px 70px 30px;
+    margin:0px auto;
+    
+    color:floralwhite;
+}
+.main {
+    padding-top: 1rem;
+}
+.address{
+    font-size:80%;
+    margin:0px;
+    color:#0f0f0f;
+}
+
+.navbar-dark {
+    background-color: #512DA8;
+}
+.list_leader {
+    padding: 0.3rem 0;
 }
 .card {
-    padding: 5px 20px;
-    background-color: antiquewhite;
+    margin-bottom: 1rem;
 }
-.row {
-    padding: 0.5em 0;
-}
-.StaffInfo {
-    margin-top: 2em;
-}
-.listStaff div {
-    padding: 0.5em;
+.card-title {
+    font-size: 1.2em;
+    font-weight: 600;
 }
