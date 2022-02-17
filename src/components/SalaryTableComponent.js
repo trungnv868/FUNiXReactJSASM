@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Button, Card, CardText, BreadcrumbItem, Breadcrumb } from "reactstrap";
 import { Link } from "react-router-dom";
 
-//Render lương
+//Render lương từng nhân viên
 const RenderSalary = ({ staff, salary }) => {
   const formatDecimal = require("format-decimal");
 
@@ -57,7 +57,7 @@ function SalaryTable(props) {
 
     setStaffList(sortedStaffList);
   }
-
+  //Duyêt qua thông tin lương từng nhân viên
   const staff = staffList.map((staff) => {
     return (
       <div className="col-12 col-md-6 col-lg-4" key={staff.id}>
@@ -68,7 +68,7 @@ function SalaryTable(props) {
       </div>
     );
   });
-
+  //Render bảng lương
   return (
     <div className="container">
       <Breadcrumb>

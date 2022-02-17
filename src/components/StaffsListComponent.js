@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Card, CardImg, CardText, Form, Input, InputGroup, Button } from "reactstrap";
 import { Link } from "react-router-dom";
 
+//Render thông tin chi tiết từng nhân viên
 function RenderStaffList({ staff}) {
   return (
     <Card>
@@ -16,15 +17,18 @@ function RenderStaffList({ staff}) {
 }
 
 const StaffList = (props) => {
+
   const [searchInput, setSearchInput] = useState("");
   const [searchStaff, setSearchStaff] = useState(props.staff);
 
+  //Bắt sự kiện nhấn nút tìm kiếm
   const submitSearch = (e) => {
     e.preventDefault();
     searchName(searchInput);
   };
-
+  //Hàm tìm kiếm
   const searchName = (value) => {
+
     const name = value;
     if (name !== "") {
       const result = props.staff.filter((s) =>
@@ -48,14 +52,14 @@ const StaffList = (props) => {
     );
   });
 
-
+  //Render danh sách nhân viên
   return (
     <div className="container">
       <div key={props.id} className="row">
         <div className="col-12 col-md-6 col-lg-3">
           <h3 className="staff ">Nhân Viên</h3>
         </div>
-        
+        {/* Form tìm kiếm nhân viên */}
         <div className="col-12 col-md-6 col-lg-9">
             <Form onSubmit={submitSearch} className="form">
               <InputGroup>

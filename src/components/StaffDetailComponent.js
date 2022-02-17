@@ -3,7 +3,7 @@ import dateFormat from "dateformat";
 import { Breadcrumb, BreadcrumbItem } from "reactstrap";
 import { Link } from "react-router-dom";
 
-//Render staff
+//Render thông tin từng nhân viên
 function RenderStaff({ staff }) {
   if (staff !== null)
     return (
