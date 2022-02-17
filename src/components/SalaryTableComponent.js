@@ -1,10 +1,11 @@
 import React, { useState } from "react";
-import { Button, Card, CardText, BreadcrumbItem, Breadcrumb} from "reactstrap";
+import { Button, Card, CardText, BreadcrumbItem, Breadcrumb } from "reactstrap";
 import { Link } from "react-router-dom";
 
 //Render lương
 const RenderSalary = ({ staff, salary }) => {
   const formatDecimal = require("format-decimal");
+
   return (
     <Card>
       <h4 className="py-2">{staff.name}</h4>
@@ -14,13 +15,14 @@ const RenderSalary = ({ staff, salary }) => {
         <p>Số giờ làm thêm: {staff.overTime}</p>
         <Card className="">
           <CardText>
-          Lương:{" "} {formatDecimal(salary, { decimal: ".", thousands: ",", precision: 0,})}{" "} VND
+            Lương:{" "} {formatDecimal(salary, { decimal: ".", thousands: ",", precision: 0,})}{" "} VND
           </CardText>
         </Card>
       </div> 
     </Card>
   );
 };
+
 //Bảng lương
 function SalaryTable(props) {
 
@@ -88,7 +90,9 @@ function SalaryTable(props) {
           </Button>
         </div>
       </div>
-      <div className="row">{staff}</div>
+      <div className="row">
+        {staff}
+      </div>
     </div>
   );
 

@@ -23,6 +23,7 @@ function RenderStaff({ staff }) {
     );
   else return <div></div>;
 }
+
 //Thông tin nhân viên
 const StaffDetail = (props) => {
   if (props.staff !== null)

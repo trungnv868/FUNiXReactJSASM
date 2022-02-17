@@ -31,25 +31,25 @@ class Main extends Component {
     return (
       <>
         <Header />
-        <div className="main">
-          <Switch>
-            <Route
-              exact path="/" component={() => <StaffList staff={this.state.staffs} />}
-            />
-            <Route
-              exact path="/staff" component={() => <StaffList staff={this.state.staffs} />}
-            />
-            <Route
-              exact path="/staff/:id" component={StaffId} 
-            />
-            <Route 
-              exact path="/department" component={() => <Department department={this.state.department} />}
-            />
-            <Route
-              exact path="/salary" component={() => <SalaryTable staffList={this.state.staffs} />}
-            />
-          </Switch>
-        </div>
+          <div className="main">
+            <Switch>
+              <Route
+                exact path="/" component={() => <StaffList staff={this.state.staffs} />}
+              />
+              <Route
+                exact path="/staff" component={() => <StaffList staff={this.state.staffs} />}
+              />
+              <Route
+                exact path="/staff/:id" component={StaffId} 
+              />
+              <Route 
+                exact path="/department" component={() => <Department department={this.state.department} />}
+              />
+              <Route
+                path="/salary" component={() => <SalaryTable staffList={this.state.staffs} />}
+              />
+            </Switch>
+          </div>
         <Footer />
       </>
     );

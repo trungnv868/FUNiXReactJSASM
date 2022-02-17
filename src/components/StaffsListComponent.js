@@ -1,44 +1,79 @@
-import React from "react";
-import { Card, CardImg, CardTitle } from "reactstrap";
+import React, { useState } from "react";
+import { Card, CardImg, CardText, Form, Input, InputGroup, Button } from "reactstrap";
 import { Link } from "react-router-dom";
 
-//Render danh sách nhân viên
-function RenderStaffList({ staff }) {
+function RenderStaffList({ staff}) {
   return (
     <Card>
       <Link to={`/staff/${staff.id}`}>
         <CardImg width="100%" src={staff.image} alt={staff.name} />
         <div className="text-center">
-          <CardTitle>{staff.name}</CardTitle>
+          <CardText>{staff.name}</CardText>
         </div>
       </Link>
     </Card>
   );
 }
 
-
-//Danh sách nhân viên
 const StaffList = (props) => {
-  const staff = props.staff.map((staff) => {
+  const [searchInput, setSearchInput] = useState("");
+  const [searchStaff, setSearchStaff] = useState(props.staff);
+
+  const submitSearch = (e) => {
+    e.preventDefault();
+    searchName(searchInput);
+  };
+
+  const searchName = (value) => {
+    const name = value;
+    if (name !== "") {
+      const result = props.staff.filter((s) =>
+        s.name.toLowerCase().match(name.toLowerCase())
+      );
+      if (result.length > 0) {
+        setSearchStaff(result);
+      } else {
+        alert("Không tìm thấy kết quả");
+      }
+    } else {
+      setSearchStaff([...props.staff]);
+    }
+  };
+
+  const staff = searchStaff.map((staff) => {
     return (
       <div className="col-lg-2 col-md-4 col-6" key={staff.id}>
-        <RenderStaffList staff={staff} />
+        <RenderStaffList staff={staff} onClick={props.onClick} />
       </div>
     );
   });
 
+
   return (
     <div className="container">
-      <div className="row">
-        <div className="col-12">
-          <h3 className="staff">Nhân Viên</h3>
+      <div key={props.id} className="row">
+        <div className="col-12 col-md-6 col-lg-3">
+          <h3 className="staff ">Nhân Viên</h3>
+        </div>
+        
+        <div className="col-12 col-md-6 col-lg-9">
+            <Form onSubmit={submitSearch} className="form">
+              <InputGroup>
+                <Input type="text" id="search" name="search" value={searchInput} 
+                  onChange={(e) => setSearchInput(e.target.value)} placeholder="Tìm kiếm tên nhân viên"
+                />
+                <Button type="submit" value="name" color="primary" className="search">
+                  Tìm kiếm
+                </Button>
+              </InputGroup>
+            </Form>
         </div>
       </div>
+      <hr></hr>
       <div className="row" key={props.id}>
         {staff}
       </div>
     </div>
   );
 };
-
 export default StaffList;
