@@ -17,7 +17,9 @@ function RenderStaffList({ staff}) {
 }
 
 const StaffList = (props) => {
-  
+
+  const [searchInput, setSearchInput] = useState("");
+  const [searchStaff, setSearchStaff] = useState(props.staff);
 
   //Bắt sự kiện nhấn nút tìm kiếm
   const submitSearch = (e) => {
