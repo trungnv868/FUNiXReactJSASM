@@ -26,6 +26,7 @@ function RenderStaff({ staff }) {
 
 //Thông tin nhân viên
 const StaffDetail = (props) => {
+  
   if (props.staff !== null)
     return (
       <div className="container">
