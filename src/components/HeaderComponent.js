@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { NavItem, Nav, Navbar, NavbarToggler, Collapse } from "reactstrap";
 import { NavLink } from "react-router-dom";
 
+// Header
 class Header extends Component {
   constructor(props) {
     super(props);
@@ -15,7 +16,7 @@ class Header extends Component {
   toggleNav() {
     this.setState({ isNavOpen: !this.state.isNavOpen });
   }
-
+  // Render Header
   render() {
     return (
       <>

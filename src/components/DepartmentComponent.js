@@ -13,6 +13,7 @@ const RenderDepartment = ({ department }) => {
 
 //Phòng ban
 function Department(props) {
+  
   //Duyệt danh sách phòng ban
   const department = props.department.map((department) => {
     return (
@@ -21,6 +22,7 @@ function Department(props) {
       </div>
     );
   });
+
   //Danh sách phòng ban
   return (
     <div className="container">
