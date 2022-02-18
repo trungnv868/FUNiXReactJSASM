@@ -95,7 +95,6 @@ function SalaryTable(props) {
       </div>
     </div>
   );
-
 }
 
 export default SalaryTable;

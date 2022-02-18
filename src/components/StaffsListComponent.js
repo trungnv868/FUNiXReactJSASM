@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 
 //Render thông tin chi tiết từng nhân viên
 function RenderStaffList({ staff}) {
+
   return (
     <Card>
       <Link to={`/staff/${staff.id}`}>
@@ -26,6 +27,7 @@ const StaffList = (props) => {
     e.preventDefault();
     searchName(searchInput);
   };
+
   //Hàm tìm kiếm
   const searchName = (value) => {
 
@@ -37,12 +39,13 @@ const StaffList = (props) => {
       if (result.length > 0) {
         setSearchStaff(result);
       } else {
-        alert("Không tìm thấy kết quả");
+        alert("Không tìm thấy kết quả!");
       }
     } else {
       setSearchStaff([...props.staff]);
     }
   };
+  
   // Duyệt ds nhân viên có trong mảng
   const staff = searchStaff.map((staff) => {
     return (
