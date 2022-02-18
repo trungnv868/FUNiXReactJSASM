@@ -18,6 +18,7 @@ class Main extends Component {
   }
 
   render() {
+    
     const StaffId = ({ match }) => {
       return (
         <StaffDetail
