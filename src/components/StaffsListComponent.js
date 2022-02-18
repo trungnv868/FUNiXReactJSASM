@@ -43,7 +43,7 @@ const StaffList = (props) => {
       setSearchStaff([...props.staff]);
     }
   };
-
+  // Duyệt ds nhân viên có trong mảng
   const staff = searchStaff.map((staff) => {
     return (
       <div className="col-lg-2 col-md-4 col-6" key={staff.id}>
@@ -73,7 +73,6 @@ const StaffList = (props) => {
             </Form>
         </div>
       </div>
-      
       <hr></hr>
       <div className="row" key={props.id}>
         {staff}
