@@ -73,6 +73,7 @@ const StaffList = (props) => {
             </Form>
         </div>
       </div>
+      
       <hr></hr>
       <div className="row" key={props.id}>
         {staff}
