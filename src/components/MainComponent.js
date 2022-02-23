@@ -33,7 +33,7 @@ class Main extends Component {
       <>
         <Header />
           <div className="main">
-            <Switch>
+            
               <Route
                 exact path="/" component={() => <StaffList staff={this.state.staffs} />}
               />
@@ -49,7 +49,7 @@ class Main extends Component {
               <Route
                 path="/salary" component={() => <SalaryTable staffList={this.state.staffs} />}
               />
-            </Switch>
+            
           </div>
         <Footer />
       </>
