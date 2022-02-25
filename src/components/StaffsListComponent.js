@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Card, CardImg, CardText, Form, Input, InputGroup, Button } from "reactstrap";
 import { Link } from "react-router-dom";
+import AddStaff from "./AddStaffComponent";
 
 //Render thông tin chi tiết từng nhân viên
 function RenderStaffList({ staff}) {
@@ -45,7 +46,12 @@ const StaffList = (props) => {
       setSearchStaff([...props.staff]);
     }
   };
-  
+
+  // Thêm nhân viên mới từ main truyền dữ liệu sang
+  const onAddStaff = (staff) => {
+    props.onAddStaff(staff);
+  };
+
   // Duyệt ds nhân viên có trong mảng
   const staff = searchStaff.map((staff) => {
     return (
@@ -59,11 +65,12 @@ const StaffList = (props) => {
   return (
     <div className="container">
       <div key={props.id} className="row">
-        <div className="col-12 col-md-6 col-lg-3">
-          <h3 className="staff ">Nhân Viên</h3>
+        <div className="col-12 col-md-6 col-lg-5">
+          
+          <AddStaff staffList={props.staff} onStaff={onAddStaff} />
         </div>
         {/* Form tìm kiếm nhân viên */}
-        <div className="col-12 col-md-6 col-lg-9">
+        <div className="col-12 col-md-6 col-lg-7">
             <Form onSubmit={submitSearch} className="form">
               <InputGroup>
                 <Input type="text" id="search" name="search" value={searchInput} 
@@ -83,4 +90,5 @@ const StaffList = (props) => {
     </div>
   );
 };
+
 export default StaffList;
