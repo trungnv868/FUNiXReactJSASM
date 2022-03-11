@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect } from "react";
 import { Card, CardImg, CardTitle, Breadcrumb, BreadcrumbItem } from "reactstrap";
 import { useSelector, useDispatch } from "react-redux";
