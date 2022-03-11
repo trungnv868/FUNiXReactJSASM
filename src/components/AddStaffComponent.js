@@ -1,6 +1,6 @@
+/* eslint-disable react/jsx-pascal-case */
 import React, { Component } from "react";
-import {  Button, Modal, ModalHeader, ModalBody, Label, Row, Col } from "reactstrap";
-import { DEPARTMENTS } from "../shared/staffs";
+import { Button, Modal, ModalHeader, ModalBody, FormGroup, Label, Row, Col } from "reactstrap";
 import { LocalForm, Control, Errors } from "react-redux-form";
 
 const required = (val) => val && val.length;
@@ -19,11 +19,11 @@ class AddStaff extends Component {
       doB: "",
       salaryScale: "",
       startDate: "",
-      department: "",
+      departmentId: "",
       annualLeave: "",
       overTime: "",
       salary: "",
-      image: "/assets/images/alberto.png",
+      image: "/asset/images/alberto.png",
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -32,31 +32,27 @@ class AddStaff extends Component {
 
   toggleModal() {
     this.setState({
-      isModalOpen: !this.state.isModalOpen,
+      isModalOpen: !this.state.isModalOpen
     });
   }
-
+  //Xử lý dũ liệu gửi đi
   handleSubmit(value) {
-    const department = DEPARTMENTS.find(
-      (department) => department.id === this.state.department
-    );
     const newStaff = {
       id: this.props.staffList.length,
       name: value.name,
       doB: value.doB,
-      department: department,
+      departmentId: value.departmentId,
       salaryScale: value.salaryScale,
       startDate: value.startDate,
       annualLeave: value.annualLeave,
       overTime: value.overTime,
-      image: "/assets/images/alberto.png",
+      image: "/asset/images/alberto.png"
     };
-
 
     if (newStaff.name === "") {
       alert("Vui lòng nhập các trường");
     } else {
-      this.props.onStaff(newStaff);
+      this.props.postStaff(newStaff);
     }
   }
 
@@ -85,7 +81,7 @@ class AddStaff extends Component {
                     validators={{
                       required,
                       minLength: minLength(3),
-                      maxLength: maxLength(30),
+                      maxLength: maxLength(30)
                     }}
                   />
                   <Errors
@@ -95,7 +91,7 @@ class AddStaff extends Component {
                     messages={{
                       required: "",
                       minLength: "Yêu cầu nhập nhiều hơn 3 ký tự",
-                      maxLength: "Yêu cầu nhập ít hơn 30 ký tự",
+                      maxLength: "Yêu cầu nhập ít hơn 30 ký tự"
                     }}
                   />
                 </Col>
@@ -113,7 +109,7 @@ class AddStaff extends Component {
                     id="doB"
                     name="doB"
                     validators={{
-                      required,
+                      required
                     }}
                   />
                   <Errors
@@ -121,7 +117,7 @@ class AddStaff extends Component {
                     model=".doB"
                     show="touched"
                     messages={{
-                      required: "Yêu cầu bắt buộc",
+                      required: "Yêu cầu bắt buộc"
                     }}
                   />
                 </Col>
@@ -139,7 +135,7 @@ class AddStaff extends Component {
                     id="startDate"
                     name="startDate"
                     validators={{
-                      required,
+                      required
                     }}
                   />
                   <Errors
@@ -147,23 +143,19 @@ class AddStaff extends Component {
                     model=".startDate"
                     show="touched"
                     messages={{
-                      required: "Yêu cầu bắt buộc",
+                      required: "Yêu cầu bắt buộc"
                     }}
                   />
                 </Col>
               </Row>
 
               <Row className="form-group">
-                <Label htmlFor="department" md={5}>
-                  Phòng ban
-                </Label>
+                <Label md={5}>Phòng ban</Label>
                 <Col md={7}>
                   <Control.select
-                    model=".department"
+                    model=".departmentId"
                     className="form-control"
-                    id="department"
-                    name="department"
-                    defaultValue="Dept01"
+                    name="departmentId"
                   >
                     <option value="Dept01">Sale</option>
                     <option value="Dept02">HR</option>
@@ -194,7 +186,7 @@ class AddStaff extends Component {
                     show="touched"
                     messages={{
                       isNumber: "Yêu cầu bắt buộc phải là số",
-                      numRange: "Yêu cầu nhập số từ 1.0 - 3.0",
+                      numRange: "Yêu cầu nhập số từ 1.0 - 3.0"
                     }}
                   />
                 </Col>
@@ -211,9 +203,9 @@ class AddStaff extends Component {
                     className="form-control"
                     id="annualLeave"
                     name="annualLeave"
-                    placeholder="ex: 1.5"
+                    placeholder="ex: 2"
                     validators={{
-                      isNumber,
+                      isNumber
                     }}
                   />
                   <Errors
@@ -221,7 +213,7 @@ class AddStaff extends Component {
                     show="touched"
                     className="text-danger"
                     messages={{
-                      isNumber: "Yêu cầu nhập số ",
+                      isNumber: "Yêu cầu nhập số "
                     }}
                   />
                 </Col>
@@ -238,9 +230,9 @@ class AddStaff extends Component {
                     className="form-control"
                     id="overTime"
                     name="overTime"
-                    placeholder="ex: 1.5"
+                    placeholder="ex: 2"
                     validators={{
-                      isNumber,
+                      isNumber
                     }}
                   />
                   <Errors
@@ -248,7 +240,7 @@ class AddStaff extends Component {
                     className="text-danger"
                     show="touched"
                     messages={{
-                      isNumber: "Yêu cầu nhập số ",
+                      isNumber: "Yêu cầu nhập số "
                     }}
                   />
                 </Col>
@@ -268,12 +260,11 @@ class AddStaff extends Component {
             </LocalForm>
           </ModalBody>
         </Modal>
-        <div className="row">
-          <h3 className="staff col">Nhân Viên</h3>
-          <Button className="col-2 mmmr-3" color="success" onClick={this.toggleModal}>
+        <FormGroup className="add">
+          <Button onClick={this.toggleModal}>
             <span className="fa fa-plus" aria-hidden="true"></span>
           </Button>
-        </div>
+        </FormGroup>
       </>
     );
   }
